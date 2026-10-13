@@ -1,0 +1,361 @@
+#root {
+  width: 100%;
+}
+
+.page {
+  width: min(100% - 32px, 520px);
+  margin: 32px auto;
+}
+
+.page h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.page > p {
+  margin: 0 0 20px;
+  color: #555;
+}
+
+.form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.form > label:not(.terms),
+.form fieldset > legend {
+  display: block;
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form > input {
+  width: 100%;
+  height: 36px;
+  margin-bottom: 13px;
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.email-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 13px;
+}
+
+.email-fields > input,
+.email-fields > select {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.email-fields > span {
+  font-size: 13px;
+}
+
+.email-fields > select {
+  width: 76px;
+  padding-right: 4px;
+}
+
+.form fieldset {
+  min-width: 0;
+  margin: 4px 0 15px;
+  padding: 0;
+  border: 0;
+}
+
+.form fieldset > small {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  font-size: 11px;
+}
+
+.calendar-wrap {
+  width: min(100%, 360px);
+  margin: 12px auto 0;
+  perspective: 3000px;
+}
+
+.calendar {
+  min-height: 430px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #777;
+  transform-origin: 50% 100%;
+  transition: transform 0.5s ease-in;
+}
+
+.calendar.fallen {
+  transform: rotateX(92deg);
+}
+
+.calendar-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-year,
+.calendar-month {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.calendar-year::before,
+.calendar-month::before {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: attr(data-value);
+}
+
+.calendar-year select {
+  grid-area: 1 / 1;
+  width: 100%;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.calendar-buttons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.calendar-buttons > button {
+  padding: 6px 9px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.calendar-buttons > button:hover {
+  background: #eee;
+}
+
+.calendar-month {
+  flex: 1;
+  align-items: center;
+}
+
+.calendar-month input {
+  z-index: 1;
+  grid-area: 1 / 1;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.calendar-month input:active,
+.calendar-month input:active + div {
+  opacity: 1;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 27px;
+}
+
+.calendar-days .weekday {
+  padding: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.calendar-days button {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-days button::before {
+  display: block;
+  margin-top: 100%;
+  content: '';
+}
+
+.calendar-days button::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: attr(data-day);
+  transform: translate(-50%, -50%);
+}
+
+.calendar-days button:hover {
+  background: #eee;
+}
+
+.calendar-days button.selected-day {
+  background: #e34c73;
+  color: #fff;
+}
+
+.calendar-selection {
+  margin-top: 7px;
+  color: #666;
+  font-size: 11px;
+  text-align: center;
+}
+
+.phone {
+  display: inline-block;
+  margin: 2px 0 8px;
+  font-family: var(--mono);
+  font-size: 18px;
+  transition: transform 0.1s;
+}
+
+.phone > span {
+  color: #666;
+  font-size: 12px;
+}
+
+.slider,
+.angle input {
+  width: 100%;
+  margin: 0;
+  accent-color: #e34c73;
+  cursor: ew-resize;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  color: #666;
+  font-size: 10px;
+}
+
+.advanced {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.advanced input,
+.terms input {
+  margin: 0 5px 0 0;
+  accent-color: #e34c73;
+}
+
+.angle {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.angle input {
+  display: block;
+  margin-top: 6px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  margin: 4px 0 15px;
+  font-size: 12px;
+}
+
+.form > button[type='submit'] {
+  min-width: 120px;
+  padding: 9px 18px;
+  border: 1px solid #bd3459;
+  border-radius: 2px;
+  background: #e34c73;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form > button[type='submit']:hover {
+  background: #ce3d63;
+}
+
+.message {
+  margin: 12px 0 0;
+  color: #34662d;
+  font-size: 13px;
+}
+
+.page footer {
+  margin-top: 16px;
+  color: #666;
+  font-size: 12px;
+}
+
+.page footer a {
+  color: #333;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 420px) {
+  .page {
+    margin: 20px auto;
+  }
+
+  .form {
+    padding: 15px;
+  }
+
+  .phone {
+    font-size: 15px;
+  }
+
+  .calendar {
+    min-height: 410px;
+    padding: 12px;
+  }
+
+  .calendar-days {
+    margin-top: 20px;
+  }
+}
